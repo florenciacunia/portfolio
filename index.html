@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio · Florencia Acuña Cecchin</title>
+<meta name="description" content="Portfolio profesional de Florencia Acuña Cecchin: Cuentas a Pagar, diagnóstico del área y proyectos de automatización en Grupo Randazzo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="is-loading">
+
+<!-- ============ PANTALLA DE CARGA ============ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__word" id="loader-word">PORTFOLIO</div>
+  <div class="loader__foot">
+    <span>Florencia Acuña Cecchin</span>
+    <span class="loader__count"><span id="loader-count">0</span>%</span>
+  </div>
+  <div class="loader__bar"><span id="loader-bar"></span></div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="nav__brand">Florencia Acuña Cecchin</a>
+  <nav class="nav__links" aria-label="Secciones">
+    <a href="#cuentas">Cuentas a Pagar</a>
+    <a href="#diagnostico">Diagnóstico</a>
+    <a href="#proyectos">Proyectos</a>
+  </nav>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <p class="hero__kicker" data-hero>Portfolio profesional 2026</p>
+  <h1 class="hero__name" aria-label="Florencia Acuña Cecchin">
+    <span class="line"><span class="split">Florencia</span></span>
+    <span class="line"><span class="split">Acuña Cecchin</span></span>
+  </h1>
+
+  <div class="hero__grid">
+    <div class="hero__role" data-hero>
+      <p class="strong">Licenciada en Administración, UNLP</p>
+      <p>Responsable de Cuentas a Pagar en Grupo Randazzo</p>
+    </div>
+    <div class="hero__studies" data-hero>
+      <p class="tiny">Cursando actualmente</p>
+      <ul>
+        <li><span class="dot"></span><span><b>Diplomado en IA Aplicada a la Gestión de Procesos</b><br>UCEMA</span></li>
+        <li><span class="dot"></span><span><b>Diplomado Internacional en Consultoría IA, Automatizaciones y Agentes IA</b><br>Aval European Open Business School</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <blockquote class="hero__statement" data-hero>
+    Un lote de 500 actas de infracciones llevaba unas <mark>100 horas</mark> de trabajo manual.
+    Con la plataforma que desarrollé, generar los PDFs pasó de 33 horas a 10 minutos.
+  </blockquote>
+
+  <dl class="facts" data-hero>
+    <div><dt><span data-count="11">11</span></dt><dd>tareas del área relevadas y documentadas para delegar</dd></div>
+    <div><dt><span data-count="6">6</span></dt><dd>proyectos de automatización, 3 ya operativos</dd></div>
+    <div><dt><span data-count="8">8</span> h</dt><dd>por semana ahorradas en carga de facturas</dd></div>
+    <div><dt><span data-count="90">90</span>%</dt><dd>menos reclamos de proveedores por comprobantes</dd></div>
+  </dl>
+</section>
+
+<!-- ============ 1. CUENTAS A PAGAR ============ -->
+<section class="section" id="cuentas">
+  <header class="section__head">
+    <span class="section__index">1/3</span>
+    <h2 class="section__title reveal-title"><span>Cuentas a Pagar</span></h2>
+    <p class="section__lead">Relevamiento y delegación. Cada tarea del área con su frecuencia, el tiempo que lleva, los sistemas que usa y el instructivo para que otra persona pueda hacerla.</p>
+  </header>
+
+  <div class="toolbar">
+    <div class="pills" role="tablist" id="freq-pills">
+      <button class="pill is-on" data-f="ALL">Todas <span id="c-all"></span></button>
+      <button class="pill" data-f="Diaria">Diarias <span id="c-d"></span></button>
+      <button class="pill" data-f="Semanal">Semanales <span id="c-s"></span></button>
+      <button class="pill" data-f="Mensual">Mensuales <span id="c-m"></span></button>
+    </div>
+    <label class="search"><span class="sr">Buscar tarea</span><input id="task-search" type="search" placeholder="Buscar tarea o sistema"></label>
+  </div>
+
+  <div class="ledger" id="ledger">
+    <div class="ledger__head" aria-hidden="true">
+      <span>Tarea</span><span>Frecuencia</span><span>Tiempo</span><span>Sistemas</span><span></span>
+    </div>
+    <div id="tasks"></div>
+  </div>
+</section>
+
+<!-- ============ 2. DIAGNÓSTICO ============ -->
+<section class="section section--tint" id="diagnostico">
+  <header class="section__head">
+    <span class="section__index">2/3</span>
+    <h2 class="section__title reveal-title"><span>Diagnóstico del área</span></h2>
+    <p class="section__lead">Análisis del circuito de Cuentas a Pagar, desde que llega la factura hasta que se emite el comprobante con sus retenciones: desperdicios, causa raíz y hoja de ruta.</p>
+  </header>
+
+  <dl class="facts facts--small">
+    <div><dt>5</dt><dd>desperdicios identificados</dd></div>
+    <div><dt>2</dt><dd>hipótesis a validar</dd></div>
+    <div><dt>4</dt><dd>ejes de oportunidad</dd></div>
+    <div><dt>2</dt><dd>prioridades seleccionadas</dd></div>
+  </dl>
+
+  <div class="diag">
+    <ol class="diag__nav" id="diag-nav">
+      <li><button class="is-on" data-d="d1">Desafío del proceso</button></li>
+      <li><button data-d="d2">Desperdicios</button></li>
+      <li><button data-d="d3">Causa raíz</button></li>
+      <li><button data-d="d4">Ejes de transformación</button></li>
+      <li><button data-d="d5">Prioridades</button></li>
+      <li><button data-d="d6">Objetivos y KPIs</button></li>
+      <li><button data-d="d7">Plan de validación</button></li>
+    </ol>
+
+    <div class="diag__body">
+      <article class="diag__panel is-on" id="d1">
+        <h3>Cómo funciona hoy</h3>
+        <ul class="plain">
+          <li>El circuito va desde la recepción de la factura hasta su pago. Hay corte los miércoles para concentrar la liquidación fuerte los viernes.</li>
+          <li>Cuentas a Pagar audita y orquesta el circuito, con dependencias manuales hacia Compras y Tesorería.</li>
+          <li>El cuello de botella está en la asignación e Interbanking, donde se concilia a mano el CRM contra un Google Sheets.</li>
+        </ul>
+        <h4>Preguntas de diagnóstico</h4>
+        <div class="qa">
+          <div><p class="q">¿Por qué existe el control CRM contra Google Sheets antes de armar el TXT?</p><p class="a">“Es un control interno del área. El Sheet nos guía sobre qué facturas pagar; casi siempre hay más facturas en el Sheet que en Autodealer porque nos olvidamos de ingresar alguna.”</p></div>
+          <div><p class="q">¿Qué volumen de facturas se procesa por semana?</p><p class="a">“Entre 300 y 400 facturas por viernes en los primeros 15 días del mes; un viernes tranquilo, entre 100 y 150.”</p></div>
+          <div><p class="q">¿Cuántos pagos caen a Tesorería por problemas de CBU o CVU?</p><p class="a">“Muy pocos. Se estandarizó el alta de proveedores con CBU validado. Los casos con CVU son como máximo 2 al mes.”</p></div>
+          <div><p class="q">¿Por qué las remesas se asignan los viernes y no al ingresar la factura?</p><p class="a">“Porque se agrupa una orden de pago por proveedor con todas sus facturas pendientes. Pasamos de 15 remesas individuales a una sola por lote.”</p></div>
+        </div>
+      </article>
+
+      <article class="diag__panel" id="d2">
+        <h3>Desperdicios según TIMWOOD</h3>
+        <div class="table-wrap"><table class="table">
+          <thead><tr><th>Categoría</th><th>Actividad</th><th>Qué pasa</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>Sobreprocesamiento</td><td>Control CRM contra Sheet</td><td>Se valida a ojo lo cargado en el sistema contra una planilla paralela.</td><td><span class="tag tag--ok">Respaldado</span></td></tr>
+            <tr><td>Inventario</td><td>Carga diferida al viernes</td><td>Se acumulan hasta 400 facturas para armar órdenes de pago en una sola jornada.</td><td><span class="tag tag--ok">Respaldado</span></td></tr>
+            <tr><td>Defectos</td><td>Auditoría Interbanking</td><td>Revisión línea por línea por fallas en la extracción del CRM.</td><td><span class="tag tag--ok">Respaldado</span></td></tr>
+            <tr><td>Movimiento</td><td>Carga posterior al pago</td><td>Se marcan a mano las facturas como pagadas en Autodealer después de que confirma el banco.</td><td><span class="tag tag--ok">Respaldado</span></td></tr>
+            <tr><td>Espera</td><td>Notas de crédito</td><td>Facturas retenidas hasta que Compras resuelve ajustes con proveedores.</td><td><span class="tag tag--warn">A validar</span></td></tr>
+          </tbody>
+        </table></div>
+      </article>
+
+      <article class="diag__panel" id="d3">
+        <h3>Los 5 porqués</h3>
+        <p class="problem">Problema: la jefatura dedica tiempo crítico a auditar contra Excel y a cargar datos después del pago.</p>
+        <ol class="whys">
+          <li><b>¿Por qué se audita línea por línea?</b> Porque no se confía en la extracción de datos de Autodealer.</li>
+          <li><b>¿Por qué no se confía?</b> Porque la generación del TXT falla al cruzar montos y proveedores.</li>
+          <li><b>¿Por qué no se corrigió?</b> Porque no se escaló a IT o el CRM es rígido.</li>
+          <li><b>¿Por qué se marca a mano la cancelación?</b> Porque Interbanking no avisa automáticamente al ERP.</li>
+          <li><b>¿Por qué no avisa?</b> Porque no hay integración entre el banco y el sistema contable.</li>
+        </ol>
+        <p class="conclusion"><b>Conclusión:</b> el equipo armó un control manual compensatorio, el Google Sheets más la revisión de la jefatura, para cubrir fallas del software en lugar de corregir la integración.</p>
+      </article>
+
+      <article class="diag__panel" id="d4">
+        <h3>Ejes de transformación</h3>
+        <div class="axes">
+          <div><span class="tag">Automatizar</span><h4>TXT de Interbanking sin errores</h4><p>Ajustar las reglas de extracción y validar el archivo antes de subirlo al banco para eliminar la auditoría visual.</p></div>
+          <div><span class="tag">Simplificar</span><h4>Un solo registro, sin Sheet</h4><p>Usar filtros de pendientes del ERP y dejar de mantener la planilla paralela.</p></div>
+          <div><span class="tag">Automatizar</span><h4>Conciliación automática después del pago</h4><p>Marcar las facturas como pagadas a partir de los extractos y comprobantes del banco.</p></div>
+          <div><span class="tag">Estandarizar</span><h4>Carga nivelada en la semana</h4><p>Repartir las imputaciones durante la semana para no saturar el viernes.</p></div>
+        </div>
+      </article>
+
+      <article class="diag__panel" id="d5">
+        <h3>Impacto contra esfuerzo</h3>
+        <div class="matrix">
+          <div class="matrix__q is-hot"><b>Ganancia rápida</b><span>Un solo registro, sin Sheet</span></div>
+          <div class="matrix__q is-hot"><b>Estratégico</b><span>TXT de Interbanking sin errores</span></div>
+          <div class="matrix__q"><b>Mejoras menores</b></div>
+          <div class="matrix__q"><b>Revisar</b></div>
+          <span class="matrix__y">Impacto</span><span class="matrix__x">Esfuerzo</span>
+        </div>
+        <ol class="priorities">
+          <li>Asegurar la exactitud del TXT de Interbanking</li>
+          <li>Unificar en un registro único y eliminar el Sheet</li>
+        </ol>
+      </article>
+
+      <article class="diag__panel" id="d6">
+        <h3>Objetivos e indicadores</h3>
+        <div class="table-wrap"><table class="table">
+          <thead><tr><th>Objetivo</th><th>Indicador</th><th>Hoy</th><th>Meta</th></tr></thead>
+          <tbody>
+            <tr><td>Eliminar errores en los lotes de pago para dejar de auditar línea por línea.</td><td>Porcentaje de TXT con diferencias de monto o proveedor</td><td>A relevar (cerca del 15%)</td><td><b>0%</b></td></tr>
+            <tr><td>Tener un único origen de datos confiable, sin doble registro.</td><td>Tiempo de conciliación CRM contra Sheet</td><td>20 min por evento</td><td><b>0 min</b></td></tr>
+          </tbody>
+        </table></div>
+      </article>
+
+      <article class="diag__panel" id="d7">
+        <h3>Plan de validación</h3>
+        <ol class="whys">
+          <li><b>Factibilidad técnica con IT o el partner de Autodealer.</b> Revisar el script que genera el TXT y si el sistema puede dar un reporte nativo de pendientes.</li>
+          <li><b>Muestra de notas de crédito con Compras.</b> Tomar el último mes para medir el volumen real y la demora promedio de los ajustes.</li>
+        </ol>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. PROYECTOS ============ -->
+<section class="section" id="proyectos">
+  <header class="section__head">
+    <span class="section__index">3/3</span>
+    <h2 class="section__title reveal-title"><span>Portafolio personal</span></h2>
+    <p class="section__lead">Proyectos que diseñé y desarrollé para el grupo. Abrí cada uno para ver el impacto, el cursograma, las capturas y el acceso a la herramienta.</p>
+  </header>
+  <ul class="projects" id="projects"></ul>
+</section>
+</main>
+
+<footer class="footer">
+  <p class="footer__big">Florencia Acuña Cecchin</p>
+  <div class="footer__row">
+    <span>Licenciada en Administración. Procesos, datos e inteligencia artificial aplicados a la gestión.</span>
+    <a href="#inicio">Volver arriba</a>
+  </div>
+</footer>
+
+<!-- ============ CASO DE PROYECTO ============ -->
+<div class="case" id="case" role="dialog" aria-modal="true" aria-labelledby="case-title" hidden>
+  <div class="case__bar">
+    <button class="btn btn--ghost" id="case-close">Cerrar</button>
+    <span class="case__pos" id="case-pos"></span>
+    <div class="case__arrows">
+      <button class="btn btn--ghost" id="case-prev" aria-label="Proyecto anterior">Anterior</button>
+      <button class="btn btn--ghost" id="case-next" aria-label="Proyecto siguiente">Siguiente</button>
+    </div>
+  </div>
+  <div class="case__scroll" id="case-scroll"><div class="case__inner" id="case-body"></div></div>
+</div>
+
+<!-- Imagen flotante al pasar sobre un proyecto -->
+<div class="peek" id="peek" aria-hidden="true"><div class="peek__inner" id="peek-inner"></div></div>
+<!-- Visor de imágenes -->
+<div class="lightbox" id="lightbox" hidden><img id="lightbox-img" alt=""></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
