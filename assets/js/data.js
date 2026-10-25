@@ -93,7 +93,7 @@ const PROJECTS = [
    impact:'Conciliación automática contra el resumen del BNA',
    stack:['React','Supabase','Vercel'],
    url:'https://gestoria-xi.vercel.app', urlLabel:'Abrir app de Gestoría',
-   cursograma:{sectors:['Gestoras externas','Conciliación (Florencia)','Contabilidad'], steps:[
+   cursograma:{sectors:['Gestoras externas','Conciliación','Contabilidad'], steps:[
      {s:0,t:'start',text:'Inicio'},
      {s:0,t:'op',text:'Hacen los trámites con la tarjeta habitualista'},
      {s:0,t:'doc',text:'Envían cupones y minutas en Excel a principio de mes'},
