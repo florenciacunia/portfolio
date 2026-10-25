@@ -61,7 +61,7 @@ const PROJECTS = [
      {label:'Carga en Celer', manual:'~41,6 h', plat:'Minutos', m:41.6, p:0.3},
      {label:'Auditoría visual', manual:'100% de las actas', plat:'~18%', m:100, p:18, pct:true}
    ],
-   flow:['Ingresa el lote de actas','La plataforma genera los PDFs','Cruza y asigna cada acta','Carga en Celer','Auditoría por muestreo, cerca del 18%','Pago con 50% de descuento'],
+   flow:['Ingresa el lote de actas','Cruza y asigna cada acta al cliente','La plataforma genera los PDFs para enviarle al cliente','Carga masiva en Celer para que Tesoreria pague','Auditoría por muestreo, cerca del 18%','Pago con 50% de descuento'],
    shots:['Pantalla principal','Cruce y asignación de actas','PDFs generados']},
 
   {slug:'infracciones-usados', title:'Infracciones de unidades en stock (usados)', area:'Comercial Usados', progress:70, status:'Avance del 70%',
