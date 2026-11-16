@@ -92,7 +92,7 @@ mark{background:linear-gradient(transparent 58%, var(--signal) 58%);color:inheri
 .section--tint>*{max-width:calc(1480px - 2*var(--pad));margin-left:auto;margin-right:auto}
 .section__head{display:grid;grid-template-columns:120px 1fr;column-gap:24px;margin-bottom:clamp(36px,5vw,64px)}
 .section__index{font-size:15px;color:var(--ink-3);padding-top:.9em;font-variant-numeric:tabular-nums}
-.section__title{font-size:clamp(44px,8vw,128px);font-weight:800;letter-spacing:-.05em;line-height:.9;overflow:hidden;font-variation-settings:"opsz" 96;padding-bottom:.05em}
+.section__title{font-size:clamp(44px,8vw,128px);font-weight:800;letter-spacing:-.05em;line-height:.9;overflow:hidden;font-variation-settings:"opsz" 96;padding-bottom:.16em}
 .section__title span{display:inline-block;transform:translateY(105%);transition:transform 1.1s var(--ease)}
 .section__title.is-in span{transform:none}
 .section__lead{grid-column:2;max-width:62ch;color:var(--ink-2);font-size:clamp(17px,1.4vw,19px);margin-top:20px}
@@ -341,3 +341,16 @@ mark{background:linear-gradient(transparent 58%, var(--signal) 58%);color:inheri
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
   .loader{display:none}
 }
+
+/* ---------- Secciones privadas (clave) ---------- */
+.gate{position:relative;max-width:560px;border:1px solid var(--line2);border-radius:18px;padding:28px;background:var(--white);box-shadow:0 1px 2px rgba(20,33,61,.04),0 10px 30px -14px rgba(20,33,61,.14)}
+.gate__icon{width:28px;height:28px;color:var(--cobalt);margin-bottom:14px}
+.gate__title{font-weight:700;font-size:20px;letter-spacing:-.01em}
+.gate__text{color:var(--ink-2);margin:4px 0 18px}
+.gate__form{display:flex;gap:10px;flex-wrap:wrap}
+.gate__form input{flex:1 1 220px;font:inherit;font-size:16px;padding:12px 18px;border-radius:999px;border:1px solid var(--line2);background:var(--paper);color:var(--ink);outline:none;transition:border-color .3s}
+.gate__form input:focus{border-color:var(--cobalt)}
+.gate__err{color:var(--warn);margin-top:12px;font-size:15px}
+.gate.is-shake{animation:shake .45s var(--ease)}
+@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.vault{animation:fadeUp .7s var(--ease)}
