@@ -3,6 +3,8 @@ const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const base = slug => `assets/proyectos/${slug}/`;
+let PROJECTS = [];
+const peek = $('#peek');
 
 /* Busca una imagen en .jpg y si no existe en .png. Devuelve la ruta o null. */
 function findImg(path){
@@ -121,15 +123,19 @@ const cnt = f => TASKS.filter(t => t.freq===f).length;
 $('#c-all').textContent = TASKS.length; $('#c-d').textContent = cnt('Diaria'); $('#c-s').textContent = cnt('Semanal'); $('#c-m').textContent = cnt('Mensual');
 renderTasks();
 
-/* ---------------- 2. Diagnóstico ---------------- */
+/* ---------------- Secciones privadas (se activan al ingresar la clave) ---------------- */
+const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+const fallbackCover = p => `<div class="cover-fallback">${esc(p.title)}</div>`;
+let secureReady = false;
+function setupSecure(){
+if (secureReady) return; secureReady = true;
+/* 2. Diagnóstico */
 $$('#diag-nav button').forEach(b => b.addEventListener('click', () => {
   $$('#diag-nav button').forEach(x => x.classList.toggle('is-on', x===b));
   $$('.diag__panel').forEach(p => p.classList.toggle('is-on', p.id===b.dataset.d));
 }));
 
-/* ---------------- 3. Proyectos ---------------- */
-const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
-const fallbackCover = p => `<div class="cover-fallback">${esc(p.title)}</div>`;
+/* 3. Proyectos */
 $('#projects').innerHTML = PROJECTS.map((p,i) => `
   <li class="project">
     <button class="project__btn" data-i="${i}">
@@ -147,7 +153,7 @@ $$('.project').forEach(li => meterIO.observe(li));
 $('#projects').addEventListener('click', e => { const b = e.target.closest('.project__btn'); if (b) openCase(+b.dataset.i); });
 
 /* Imagen flotante que sigue al mouse */
-const peek = $('#peek'); let px = 0, py = 0, tx = 0, ty = 0, peekOn = false;
+let px = 0, py = 0, tx = 0, ty = 0, peekOn = false;
 addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
 (function loop(){ px += (tx-px)*.14; py += (ty-py)*.14; peek.style.left = px+'px'; peek.style.top = py+'px'; requestAnimationFrame(loop); })();
 $$('.project__btn').forEach(b => {
@@ -159,6 +165,9 @@ $$('.project__btn').forEach(b => {
   });
   b.addEventListener('mouseleave', () => { peekOn = false; peek.classList.remove('is-on'); });
 });
+}
+
+document.addEventListener('vault:unlocked', e => { PROJECTS = e.detail.projects; setupSecure(); });
 
 /* ---------------- Cursograma (SVG) ---------------- */
 function wrap(t, max){ const w = t.split(' '), out = []; let c = ''; w.forEach(x => { if ((c+' '+x).trim().length > max && c){ out.push(c); c = x; } else c = (c+' '+x).trim(); }); if (c) out.push(c); return out; }
