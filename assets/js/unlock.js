@@ -41,7 +41,7 @@
 
   // Mensaje claro si todavía no se configuró Supabase
   if (!sb){
-    document.addEventListener('DOMContentLoaded', () => setMsg('Esta parte todavía no está configurada. Falta cargar la URL y la clave de Supabase.'));
+    document.addEventListener('DOMContentLoaded', () => setMsg(configured ? 'No se pudo cargar el módulo de login. Revisá la conexión y recargá la página.' : 'Esta parte todavía no está configurada. Falta cargar la URL y la clave de Supabase.'));
     forms().forEach(f => f.querySelectorAll('input,button').forEach(el => el.disabled = true));
     return;
   }
